@@ -1,0 +1,264 @@
+"  _____ _____ _____ _____ _____ _____ _____ _____ 
+" |_____|_____|_____|_____|_____|_____|_____|_____|
+" | |                                           | |
+" | |                                           | |
+" | |                                           | |
+" | |           __     _____ __  __             | |
+" | |           \ \   / /_ _|  \/  |            | |
+" | |            \ \ / / | || |\/| |            | |
+" | |             \ V /  | || |  | |            | |
+" | |              \_/  |___|_|  |_|            | |
+" | |                                           | |
+" | |                                           | |
+" | |                                           | |
+" |_|___________________________________________|_|
+" |_____|_____|_____|_____|_____|_____|_____|_____|
+
+syntax on
+
+filetype plugin on
+
+set mouse=a
+set exrc
+set encoding=UTF-8
+set fenc=utf-8
+set guicursor=
+set relativenumber
+set nu
+set nohlsearch
+set hidden
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nowrap
+set smartcase
+set noswapfile
+set statusline=
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
+set scrolloff=10
+set noshowmode
+set signcolumn=yes
+set spelllang=en_us,el
+set spell
+set nofoldenable    " disable folding
+set cursorline
+set cursorlineopt=number
+set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
+
+call plug#begin('~/.vim/plugged')
+" React Dev
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+" Vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Language Support
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+
+"Plug 'Valloric/YouCompleteMe'
+Plug 'deoplete-plugins/deoplete-clang'
+
+"Auto complete parenthesis
+Plug 'jiangmiao/auto-pairs'
+
+" VHDL
+Plug 'suoto/vim-hdl'
+Plug 'vim-syntastic/syntastic'
+
+" Comments
+Plug 'preservim/nerdcommenter'
+
+Plug 'neovim/nvim-lspconfig'
+
+" Lua Auto-complete
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-lua-ftplugin'
+
+" Emmet html:5
+Plug 'mattn/emmet-vim'
+
+" Coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Color-schemes
+Plug 'gruvbox-community/gruvbox'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'sainnhe/gruvbox-material'
+
+" Arduino
+Plug 'https://github.com/z3t0/arduvim'
+
+" Tmux navigator
+Plug 'christoomey/vim-tmux-navigator'
+
+" Quick navigation to letters
+Plug 'unblevable/quick-scope'
+
+" Nerd Tree and icons
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+
+" Fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Latex
+Plug 'lervag/vimtex'
+Plug 'matze/vim-tex-fold'
+Plug 'skywind3000/asyncrun.vim'
+
+" Cpp Syntax Highlight
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" Goyo
+Plug 'junegunn/goyo.vim'
+
+" Rust
+Plug 'cespare/vim-toml', { 'branch': 'main' }
+
+call plug#end()
+
+let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 4}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
+
+let g:loaded_python_provider=0
+let g:python3_host_prog = '/usr/bin/python3'
+
+" Map ESC to jj
+:imap jj <Esc>
+:imap ξξ <Esc>
+
+" Auto-format when saving the document
+"au BufWrite * :Autoformat
+nnoremap <Leader>gf :Autoformat<CR>
+
+" Emmet
+let g:user_emmet_leader_key=','
+
+" Airline theme
+let g:airline_theme='dark'
+
+" Colorschemes
+colorscheme gruvbox
+highlight! link SignColumn LineNr
+highlight Normal guibg=none
+hi Visual  guifg=none guibg=#424748 gui=none
+hi LineNr guifg=gray gui=none
+hi CursorLineNr guifg=#0FACD2 guibg=none gui=none
+
+let mapleader = " "
+
+" Coc stuff
+nmap <Leader>gd <Plug>(coc-definition)
+nmap <Leader>gr <Plug>(coc-references)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Window resize
+nnoremap <Leader>= :vertical resize +10<CR>
+nnoremap <Leader>- :vertical resize -10<CR>
+
+" Fzf
+let $FZF_DEFAULT_OPTS='--reverse'
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+nnoremap <silent> <C-p> :FZF ~/<CR>
+
+" Nerd Tree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+" Start NERDTree. If a file is specified, move the cursor to its window.
+"autocmd StdinReadPre * let s:std_in=1
+"Exit nerdtree automaticaly when being last window
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+            \ quit | endif
+
+" Latex
+let g:tex_flavor='latex'
+let g:vimtex_compiler_progname='nvr'
+nnoremap <Insert> :AsyncRun latexmk -pvc -pdf %<CR>
+nnoremap <Del> :AsyncStop<CR>
+let g:vimtex_view_general_viewer = 'SumatraPDF'
+"let g:vimtex_view_general_options = '-reuse-instance @pdf'
+"let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
+" Map window navigation to tmux-like keybindings
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Map spelling auto correction
+nnoremap <leader>sp :normal! mm[s1z=`m<CR>
+nnoremap <leader>σπ :normal! mm[s1z=`m<CR>
+
+" Highlight spell errors
+:highlight SpellBad ctermfg=009 ctermbg=011 guifg=#ffffff guibg=none
+
+" Vex and Sex
+nnoremap <Leader>vs :Vex!<CR>
+nnoremap <Leader>hs :Sex<CR>
+
+" Quick Scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+highlight QuickScopePrimary guifg='#ad80e9' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+" Map opening of init.vim
+nnoremap <Leader>rc :e ~/.config/nvim/init.vim<CR>
