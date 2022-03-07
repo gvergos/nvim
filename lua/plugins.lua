@@ -34,12 +34,7 @@ require('packer').startup(function()
     use 'ryanoasis/vim-devicons'
     
     -- Java
-    use({
-        "mfussenegger/nvim-jdtls",
-        config = function()
-            -- https://github.com/fitrh/init.nvim/blob/main/lua/plugin/jdtls/config.lua
-            require("plugin.jdtls.config").attach()
-        end,
-      module = "jdtls",
-    })
+    --use 'mfussenegger/nvim-jdtls'
+
+    use 'williamboman/nvim-lsp-installer'
 end)
