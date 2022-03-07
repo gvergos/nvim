@@ -1,67 +1,45 @@
--- Package Manager Packer
-require('packer').startup(function ()
-    -- Packer
-    use 'wbthomason/packer.nvim'
-
-    -- Gruvbox
-    use "ellisonleao/gruvbox.nvim"
-    -- Moonfly
-    use 'bluz71/vim-moonfly-colors'
-use "lunarvim/darkplus.nvim"
-
-    -- Lua-Line
-    use {
-  	    'nvim-lualine/lualine.nvim',
-  	    requires = { { 'kyazdani42/nvim-web-devicons', opt = true} }
-    }
-
-    -- Telescope
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-    -- Cpp highlight
-    use 'octol/vim-cpp-enhanced-highlight'
-
-    -- Auto-pairs
-    use 'jiangmiao/auto-pairs'
-    use "alvan/vim-closetag"
-    use "tpope/vim-unimpaired"
-    use "tpope/vim-surround"
-
-    -- Commenter
-    use 'preservim/nerdcommenter'
-
-    -- LSP
-    use "neovim/nvim-lspconfig"
-
-    -- LSP Installer
-    use 'williamboman/nvim-lsp-installer'
-
-    -- Vsnip
-    use "hrsh7th/vim-vsnip"
-    use "hrsh7th/vim-vsnip-integ"
+local use = require('packer').use
+require('packer').startup(function()
+    use 'wbthomason/packer.nvim' -- Package manager
+    use 'neovim/nvim-lspconfig' -- Collection of configurations for the built-in LSP client
     
-    -- Autocomplete
+    -- Treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    
+    -- Completion
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+
+    -- LuaSnip
     use 'L3MON4D3/LuaSnip'
-    -- Coc
-    use { "neoclide/coc.nvim", branch = "release"}
 
-    -- Java
-    use "mfussenegger/nvim-jdtls"
+    -- Comments
+    use 'preservim/nerdcommenter'
 
-    -- Emmet
-    use 'mattn/emmet-vim'
+    -- Auto complete parenthesis
+    use 'jiangmiao/auto-pairs'
+
+    -- Colorschemes
+    use "ellisonleao/gruvbox.nvim"
+    use 'bluz71/vim-moonfly-colors'
+
+    -- Nerd Tree
+    use 'preservim/nerdtree'
+    use 'ryanoasis/vim-devicons'
     
-    -- Vhdl
-    use 'scrooloose/syntastic'
-    use 'http://git.vhdltool.com/vhdl-tool/syntastic-vhdl-tool'
-    use 'majutsushi/tagbar'
-    use 'neomake/neomake'
-    use "suoto/vim-hdl"
+    -- Java
+    use({
+        "mfussenegger/nvim-jdtls",
+        config = function()
+            -- https://github.com/fitrh/init.nvim/blob/main/lua/plugin/jdtls/config.lua
+            require("plugin.jdtls.config").attach()
+        end,
+      module = "jdtls",
+    })
 end)

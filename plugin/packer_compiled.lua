@@ -99,40 +99,20 @@ _G.packer_plugins = {
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
-  ["darkplus.nvim"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
-    url = "https://github.com/lunarvim/darkplus.nvim"
-  },
-  ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/emmet-vim",
-    url = "https://github.com/mattn/emmet-vim"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  neomake = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/neomake",
-    url = "https://github.com/neomake/neomake"
-  },
   nerdcommenter = {
     loaded = true,
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
+  },
+  nerdtree = {
+    loaded = true,
+    path = "/home/gver/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/preservim/nerdtree"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -140,99 +120,69 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    config = { "\27LJ\2\nB\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vattach\24plugin.jdtls.config\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/gver/.local/share/nvim/site/pack/packer/opt/nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
-  },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/gver/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["plenary.nvim"] = {
+  ["vim-devicons"] = {
     loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  syntastic = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/syntastic",
-    url = "https://github.com/scrooloose/syntastic"
-  },
-  ["syntastic-vhdl-tool"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/syntastic-vhdl-tool",
-    url = "http://git.vhdltool.com/vhdl-tool/syntastic-vhdl-tool"
-  },
-  tagbar = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/tagbar",
-    url = "https://github.com/majutsushi/tagbar"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-closetag"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-closetag",
-    url = "https://github.com/alvan/vim-closetag"
-  },
-  ["vim-cpp-enhanced-highlight"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-cpp-enhanced-highlight",
-    url = "https://github.com/octol/vim-cpp-enhanced-highlight"
-  },
-  ["vim-hdl"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-hdl",
-    url = "https://github.com/suoto/vim-hdl"
+    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-moonfly-colors"] = {
     loaded = true,
     path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
     url = "https://github.com/bluz71/vim-moonfly-colors"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-surround",
-    url = "https://github.com/tpope/vim-surround"
-  },
-  ["vim-unimpaired"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
-    url = "https://github.com/tpope/vim-unimpaired"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = true,
-    path = "/home/gver/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
-    url = "https://github.com/hrsh7th/vim-vsnip-integ"
   }
 }
 
 time([[Defining packer_plugins]], false)
+local module_lazy_loads = {
+  ["^jdtls"] = "nvim-jdtls"
+}
+local lazy_load_called = {['packer.load'] = true}
+local function lazy_load_module(module_name)
+  local to_load = {}
+  if lazy_load_called[module_name] then return nil end
+  lazy_load_called[module_name] = true
+  for module_pat, plugin_name in pairs(module_lazy_loads) do
+    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
+      to_load[#to_load + 1] = plugin_name
+    end
+  end
+
+  if #to_load > 0 then
+    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
+    local loaded_mod = package.loaded[module_name]
+    if loaded_mod then
+      return function(modname) return loaded_mod end
+    end
+  end
+end
+
+if not vim.g.packer_custom_loader_enabled then
+  table.insert(package.loaders, 1, lazy_load_module)
+  vim.g.packer_custom_loader_enabled = true
+end
+
 if should_profile then save_profiles() end
 
 end)

@@ -1,7 +1,5 @@
--- Gruvbox
-
-vim.opt.termguicolors = true
---vim.o.background = "dark" -- or "light" for light mode
+-- Colorschemes
+vim.o.background = "dark"
 vim.cmd[[
     colorscheme gruvbox
     highlight! link SignColumn LineNr
