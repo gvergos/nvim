@@ -33,8 +33,6 @@ require('packer').startup(function()
     use 'preservim/nerdtree'
     use 'ryanoasis/vim-devicons'
     
-    -- Java
-    --use 'mfussenegger/nvim-jdtls'
-
+    -- LSP - Installer
     use 'williamboman/nvim-lsp-installer'
 end)
