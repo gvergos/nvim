@@ -1,6 +1,6 @@
 -- Vim options
 vim.g.mapleader = ' '
-vim.wo.colorcolumn = '80'
+--vim.wo.colorcolumn = '80'
 vim.bo.filetype = 'lua'
 vim.g.syntax = true
 vim.cmd[[
@@ -29,6 +29,9 @@ vim.cmd[[
     set cursorline
     set cursorlineopt=number
     set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
+
+    "highlight SpellBad ctermfg=009 ctermbg=011 guifg=#867A7A guibg=none
+    hi SpellBad cterm=underline
 ]]
 
 local set = vim.opt
@@ -44,3 +47,9 @@ set.relativenumber = true
 set.cursorlineopt = "number"
 set.scrolloff = 10
 set.termguicolors = true
+
+vim.g.nvim_markdown_previe_theme = "solarized-light"
+vim.g.nvim_markdown_preview_format = 'markdown'
+vim.cmd[[ 
+    autocmd FileType markdown MarkdownPreview
+]]
