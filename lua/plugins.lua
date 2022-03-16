@@ -33,7 +33,7 @@ require('packer').startup(function()
     -- LSP - Installer
     use 'williamboman/nvim-lsp-installer'
 
-    -- Cpp syntax highlighting
+    -- Cuda syntax highlighting
     use 'bfrg/vim-cuda-syntax'
 
     -- Syntax highlighting in telescope panes
