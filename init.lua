@@ -7,5 +7,5 @@ require("servers")
 require("tree-sitter")
 require("lsp-installer")
 require("tele_scope")
-require("spellCheck")
-
+require("tex")
+require("buffer_line")

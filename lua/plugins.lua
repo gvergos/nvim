@@ -43,7 +43,7 @@ require('packer').startup(function()
       'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
-    
+
     -- Diagnostics
     use {
       "folke/trouble.nvim",
@@ -59,5 +59,18 @@ require('packer').startup(function()
 
     -- Marckdown Preview
     use "davidgranstrom/nvim-markdown-preview"
+    
+    -- Airline
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+
+    
+    -- Latex
+    use 'lervag/vimtex'
+    use 'matze/vim-tex-fold'
+    use 'skywind3000/asyncrun.vim'
+    
+    -- BufferLine
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
 
 end)

@@ -31,6 +31,10 @@ map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>", opts)
 map("n", "<Leader>fb", "<cmd>Telescope buffers<CR>", opts)
 map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 
+-- Enable, disable LSP
+map("n", "<Leader>lsp", "<cmd> lua vim.diagnostic.show()<CR>", opts)
+map("n", "<Leader>lsd", "<cmd> lua vim.diagnostic.hide()<CR>", opts)
+
 -- LSP
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
