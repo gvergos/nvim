@@ -35,5 +35,26 @@ vim.keymap.set("n", "<Leader>r-", "<cmd>resize -5<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Search terms stay in middle
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
 -- Github Copilot
 vim.api.nvim_set_keymap('i', '<Right>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
+
+-- Don't lose yanked word in visual paste
+vim.keymap.set("v", "p", "\"_dP")
+
+-- Yank to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")  -- Yank line to system clipboard
+
+-- Map <C-c> to <Esc> in insert mode
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- Open terminal in current directory
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- Search and replace current word
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
