@@ -51,10 +51,40 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")  -- Yank line to system clipboard
 
 -- Map <C-c> to <Esc> in insert mode
-vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<C-v>", "<Esc>")
 
 -- Open terminal in current directory
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Search and replace current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+local function check_word(from, to)
+    local bufnr = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+    local one_line = ""
+    for _, line in ipairs(lines) do
+        one_line = one_line .. "\n" .. line
+    end
+
+    if not string.find(one_line, from) then
+        repeat
+            from = vim.fn.input("No such word!. Replace: ")
+            to = vim.fn.input("With: ")
+        until string.find(one_line, from)
+        return from, to
+    end
+    return from, to
+end
+
+local function replace_single(from, to)
+    vim.api.nvim_command(":%s/" .. from .. "/" .. to .. "/gc")
+end
+
+local function replace_word()
+    local from, to = check_word(vim.fn.input("Replace: "), vim.fn.input("With: "))
+    replace_single(from, to)
+end
+
+vim.keymap.set("n", "<Leader>re", replace_word)
