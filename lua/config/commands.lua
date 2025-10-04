@@ -8,6 +8,11 @@ vim.api.nvim_create_autocmd(
     { pattern = "*.ejs", command = "set ft=html" }
 )
 
+vim.api.nvim_create_autocmd(
+    "BufWinEnter",
+    { pattern = "*.hdb*", command = "set ft=json" }
+)
+
 local formatJSON = function ()
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
