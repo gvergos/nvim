@@ -10,12 +10,12 @@ vim.api.nvim_create_autocmd(
 
 vim.api.nvim_create_autocmd(
     "BufWinEnter",
-    { pattern = ".hdiconfig", command = "set ft=json" }
+    { pattern = "*.hdiconfig", command = "set ft=json" }
 )
 
 vim.api.nvim_create_autocmd(
     "BufWinEnter",
-    { pattern = ".hdbtable", command = "set ft=sql" }
+    { pattern = "*.hdbtable", command = "set ft=sql" }
 )
 
 local formatJSON = function ()
