@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd(
 
 vim.api.nvim_create_autocmd(
     "BufWinEnter",
-    { pattern = "*.hdb*", command = "set ft=json" }
+    { pattern = "*.hd*", command = "set ft=json" }
 )
 
 local formatJSON = function ()
