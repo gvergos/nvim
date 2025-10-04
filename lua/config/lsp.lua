@@ -5,7 +5,8 @@ vim.lsp.enable({
     "pyright",
     "clangd",
     "rust_analyzer",
-    "sqlls"
+    "sqlls",
+    "asm_lsp"
 })
 
 vim.diagnostic.config({
