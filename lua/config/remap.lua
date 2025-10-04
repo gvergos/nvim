@@ -40,6 +40,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Github Copilot
+vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap('i', '<Right>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
 
 -- Don't lose yanked word in visual paste
