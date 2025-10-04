@@ -6,7 +6,8 @@ vim.lsp.enable({
     "clangd",
     "rust_analyzer",
     "sqlls",
-    "asm_lsp"
+    "asm_lsp",
+    "jsonls"
 })
 
 vim.diagnostic.config({
