@@ -8,11 +8,6 @@ vim.api.nvim_create_autocmd(
     { pattern = "*.hdiconfig", command = "set ft=json" }
 )
 
-vim.api.nvim_create_autocmd(
-    "BufWinEnter",
-    { pattern = "*.hdbtable", command = "set ft=sql" }
-)
-
 local formatJSON = function ()
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
