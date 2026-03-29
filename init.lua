@@ -1,3 +1,5 @@
 require("config.settings")
 require("config.remap")
+require("config.commands")
+require("config.lsp")
 require("config.lazy")

@@ -56,7 +56,7 @@ vim.opt.laststatus=3
 vim.opt.spell = true
 
 -- Note: Move spl file to .local/share/nvim/site/spell
-vim.opt.spelllang = { "en_us" }
+vim.opt.spelllang = { "en_us", "el2" }
 vim.opt.cursorline = true      -- show cursor line
 
 -- Background
