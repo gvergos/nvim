@@ -18,7 +18,8 @@ vim.lsp.enable({
     "tailwindcss",
     "sqls",
     "clangd",
-    "cds_lsp"
+    "cds_lsp",
+    "rust_analyzer"
 })
 
 vim.diagnostic.config({
