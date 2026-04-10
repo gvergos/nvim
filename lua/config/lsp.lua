@@ -19,7 +19,8 @@ vim.lsp.enable({
     "sqls",
     "clangd",
     "cds_lsp",
-    "rust_analyzer"
+    "rust_analyzer",
+    "texlab"
 })
 
 vim.diagnostic.config({

@@ -90,5 +90,7 @@ end
 
 vim.keymap.set("n", "<Leader>re", replace_word)
 
+vim.keymap.set("n", "<Leader>n", "<cmd>Ex ~/Documents/Notes/<CR>")
+
 -- Generate UUID
 vim.keymap.set("n", "<Leader>uu", "<cmd>r !uuidgen<CR>")
