@@ -2,15 +2,8 @@ return {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
     build = ':TSUpdate',
-    config = function()
-        local parsers = require('nvim-treesitter.parsers')
-        parsers.cds = {
-            install_info = {
-                url = 'https://github.com/cap-js-community/tree-sitter-cds.git',
-                files = { 'src/parser.c' },
-                branch = 'main',
-            },
-            filetype = 'cds',
-        }
-    end
+    -- The cds parser is registered on the `User TSUpdate` event in
+    -- lua/config/commands.lua: nvim-treesitter (main) drops the parser table
+    -- and re-fires that event on every install/update, so a registration made
+    -- here in `config` would be wiped before :TSInstall ever reads it.
 }

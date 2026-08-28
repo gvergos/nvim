@@ -36,21 +36,28 @@ vim.api.nvim_create_user_command(
     --end,
 --})
 
+-- nvim-treesitter (main) does not enable highlighting itself; without this the
+-- whole @-palette below is dead and JS falls back to LSP semantic tokens, which
+-- go silent on anything typed `any` (req.target, rows.forEach in CAP handlers).
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'cds',
-    callback = function()
-        vim.treesitter.start()
+    pattern = { 'cds', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    callback = function(ev)
+        pcall(vim.treesitter.start, ev.buf)
     end,
 })
 
-vim.api.nvim_create_autocmd('User', { 
+vim.api.nvim_create_autocmd('User', {
     pattern = 'TSUpdate',
     callback = function()
         require('nvim-treesitter.parsers').cds = {
             install_info = {
-                url = 'https://github.com/cap-js-community/tree-sitter-cds.git',
-                queries = 'queries/neovim', -- also install queries from given directory
+                url = 'https://github.com/cap-js-community/tree-sitter-cds',
+                branch = 'main',
+                -- The neovim-flavoured queries live in nvim/, not queries/ --
+                -- the latter are plain tree-sitter captures and highlight nothing.
+                queries = 'nvim',
             },
+            filetype = 'cds',
         }
     end
 })

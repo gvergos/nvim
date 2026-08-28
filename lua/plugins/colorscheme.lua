@@ -127,7 +127,7 @@ return {
         vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
         vim.api.nvim_set_hl(0, 'LineNr', { fg = '#888888' })
-        vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#ffffff' })
+        vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#ffdd33' })
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
         vim.api.nvim_set_hl(0, "SpellBad",   { underline = true, sp = "#e67e80" })
         vim.api.nvim_set_hl(0, "SpellCap",   { underline = true, sp = "#7fbbb3" })
@@ -135,14 +135,33 @@ return {
         vim.api.nvim_set_hl(0, "SpellLocal", { underline = true, sp = "#83c092" })
         -- Color functions with a slightly blue-gray tone
         local func_color = "#96a6c8"
+        local builtin_color = "#95a99f"
         vim.api.nvim_set_hl(0, "Function", { fg = func_color })
         vim.api.nvim_set_hl(0, "@function", { fg = func_color })
         vim.api.nvim_set_hl(0, "@function.call", { fg = func_color })
         vim.api.nvim_set_hl(0, "@function.method", { fg = func_color })
-        vim.api.nvim_set_hl(0, "@function.method.call", { fg = func_color })
+        -- x.forEach(...) — treesitter reads syntax, not types, so this catches
+        -- the calls ts_ls stays silent about (arr is `any`). It cannot tell the
+        -- standard library from our own methods, so every x.y() call is quartz.
+        vim.api.nvim_set_hl(0, "@function.method.call", { fg = builtin_color })
         vim.api.nvim_set_hl(0, "@function.builtin", { fg = func_color })
         vim.api.nvim_set_hl(0, "@lsp.type.function", { fg = func_color })
         vim.api.nvim_set_hl(0, "@lsp.type.method", { fg = func_color })
+        -- Property chains (req.target.name) in the same blue-gray. @variable.member
+        -- in config/commands.lua covers these once treesitter runs; @lsp.type.property
+        -- is the same thing for the buffers where ts_ls does know the type.
+        vim.api.nvim_set_hl(0, "@lsp.type.property", { fg = func_color })
+
+        -- Standard-library members (forEach, console.log, parseInt, .length) in
+        -- quartz. ts_ls tags everything declared in lib.*.d.ts with
+        -- `defaultLibrary`, so this is the precise version of the treesitter rule
+        -- above -- but only in typed code; on `any` it emits nothing at all.
+        -- Must live here, not in the ColorScheme autocmd: gruber-darker clears
+        -- every @lsp* group from its own ColorScheme handler.
+        -- ts_ls reports methods as `member`; other servers use `method`.
+        for _, t in ipairs({ "member", "method", "function", "property" }) do
+            vim.api.nvim_set_hl(0, "@lsp.typemod." .. t .. ".defaultLibrary", { fg = builtin_color })
+        end
     end,
 }
 
