@@ -19,7 +19,8 @@ vim.lsp.enable({
     "sqls",
     "clangd",
     "cds_lsp",
-    "texlab"
+    "texlab",
+    "zls"
 })
 
 vim.lsp.config('ts_ls', {
